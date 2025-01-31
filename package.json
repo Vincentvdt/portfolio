@@ -10,7 +10,10 @@
     "lint:fix": "next lint --fix",
     "lint:strict": "next lint '*/**/*.{js,jsx,ts,tsx}'",
     "prettier": "prettier --write */**/*.{js,jsx,json,ts,tsx,scss,css,md}",
-    "prepare": "husky"
+    "prepare": "husky",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next node_modules",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^8.22.0",
@@ -32,9 +35,9 @@
     "eslint": "^9.19.0",
     "eslint-config-next": "^15.1.6",
     "eslint-config-prettier": "^10.0.1",
-    "postcss": "^8",
+    "postcss": "^8.5.1",
     "prettier": "^3.4.2",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
 }
