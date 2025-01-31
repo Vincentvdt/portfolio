@@ -11,6 +11,7 @@ const config = {
   trailingComma: 'es5', // Add trailing commas where valid in ES5
   bracketSpacing: true, // Print spaces between brackets in object literals
   arrowParens: 'always', // Always include parentheses around arrow function arguments
+  plugins: ['prettier-plugin-tailwindcss'], // Add Tailwind CSS support
 }
 
-export default config;
+export default config
