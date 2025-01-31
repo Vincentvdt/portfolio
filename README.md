@@ -1,36 +1,211 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Starter
 
-## Getting Started
+A **Next.js Starter Template** with all the essentials to kickstart your projects. This setup allows you to build both **frontend-only** and **full-stack** applications with flexibility.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- **Next.js (latest version)** – SSR, SSG, API Routes
+- **React 18 with TypeScript** – Type-safe development
+- **Tailwind CSS & Tailwind UI** – Modern styling
+- **next-i18next** – Internationalization (i18n)
+- **ESLint & Prettier** – Code linting & formatting
+- **Husky & Lint-Staged** – Pre-commit hooks for code quality
+- **Vercel-ready** – Easily deploy to Vercel
+- **Flexible Deployment** – Can also be deployed to Netlify, Cloudflare Pages, DigitalOcean, or self-hosted solutions
+
+---
+
+## 📁 Project Structure
+
+```
+next-starter/
+├── public/                 # Static assets (favicons, images)
+├── src/
+│   ├── components/         # Reusable UI components
+│   ├── layouts/            # Page layouts
+│   ├── pages/              # Next.js Pages (or use app router)
+│   ├── api/                # Backend routes if needed
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions (e.g., fetching data)
+│   ├── styles/             # Tailwind global styles
+│   ├── locales/            # i18n translations
+│   ├── types/              # TypeScript types
+│   ├── config.ts           # Global settings
+├── .husky/                 # Husky hooks
+├── .eslintrc.json          # ESLint rules
+├── .prettierrc             # Prettier rules
+├── next.config.js          # Next.js configuration
+├── tailwind.config.ts      # Tailwind settings
+├── package.json            # Dependencies and scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔧 Installation & Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/your-repo/next-starter.git
+cd next-starter
+```
 
-## Learn More
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3️⃣ Start the Development Server
+```sh
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌍 Internationalization (i18n)
 
-## Deploy on Vercel
+This project uses **next-i18next** for multilingual support.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Configuration**
+Modify `next-i18next.config.js`:
+```js
+module.exports = {
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+  },
+};
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Modify `next.config.js`:
+```js
+const { i18n } = require('./next-i18next.config');
+module.exports = { i18n, reactStrictMode: true };
+```
+
+### **Adding Translations**
+Create translation files in `src/locales`:
+
+📂 **`src/locales/en/common.json`**
+```json
+{
+  "welcome": "Welcome to my website"
+}
+```
+
+📂 **`src/locales/fr/common.json`**
+```json
+{
+  "welcome": "Bienvenue sur mon site"
+}
+```
+
+### **Using Translations in a Component**
+```tsx
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export default function Home() {
+  const { t } = useTranslation('common');
+  return <h1>{t('welcome')}</h1>;
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
+```
+
+---
+
+## 🎨 Styling with Tailwind CSS
+
+Tailwind is pre-configured in this setup.
+
+Modify `tailwind.config.ts` to customize styles:
+```ts
+module.exports = {
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+---
+
+## ✅ Code Quality Tools
+
+### **ESLint & Prettier**
+- ESLint is set up with Next.js defaults.
+- Prettier is configured for consistent formatting.
+
+Modify `.eslintrc.json`:
+```json
+{
+  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:prettier/recommended"]
+}
+```
+
+Modify `.prettierrc`:
+```json
+{
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2
+}
+```
+
+### **Husky & Lint-Staged**
+Prevents bad commits by running linting before commit.
+
+Modify `package.json`:
+```json
+"lint-staged": {
+  "**/*.{js,ts,tsx}": "eslint --fix",
+  "**/*.{js,ts,tsx,json,md}": "prettier --write"
+}
+```
+
+Enable Husky:
+```sh
+npx husky add .husky/pre-commit "npx lint-staged"
+```
+
+---
+
+## 🚀 Deployment
+
+### **1️⃣ Deploy to Vercel (Default)**
+```sh
+vercel
+```
+
+### **2️⃣ Deploy to Other Platforms**
+✅ **Netlify** → `netlify deploy`
+✅ **Cloudflare Pages** → Use `wrangler publish`
+✅ **Self-hosted / VPS** → Build & run:
+```sh
+npm run build
+npm start
+```
+
+---
+
+## 🛠 Customization
+
+- **Add Database** → Use `prisma`, `mongoose`, or `typeorm`.
+- **Authentication** → Use `next-auth`.
+- **CMS Integration** → Sanity, Strapi, or Contentful.
+- **Analytics** → Google Analytics, Vercel Analytics.
+
+---
+
+## 📜 License
+This project is licensed under the MIT License.
+
