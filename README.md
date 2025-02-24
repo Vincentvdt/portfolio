@@ -9,7 +9,8 @@ A **Next.js Starter Template** with all the essentials to kickstart your project
 - **Next.js (latest version)** – SSR, SSG, API Routes
 - **React 18 with TypeScript** – Type-safe development
 - **Tailwind CSS & Tailwind UI** – Modern styling
-- **next-i18next** – Internationalization (i18n)
+- **next-i18next** – Internationalization (i18n)Zustand – Lightweight, cosmic state management
+- **Zustand** – Lightweight, cosmic state management
 - **ESLint & Prettier** – Code linting & formatting
 - **Husky & Lint-Staged** – Pre-commit hooks for code quality
 - **Vercel-ready** – Easily deploy to Vercel
@@ -29,6 +30,7 @@ next-starter/
 │   ├── api/                # Backend routes if needed
 │   ├── hooks/              # Custom React hooks
 │   ├── lib/                # Utility functions (e.g., fetching data)
+│   ├── store/              # Zustand stores for state management
 │   ├── styles/             # Tailwind global styles
 │   ├── locales/            # i18n translations
 │   ├── types/              # TypeScript types
@@ -60,6 +62,28 @@ npm install
 ```sh
 npm run dev
 ```
+
+---
+
+## 💫 State Management with Zustand
+
+This project includes a simple cosmic store using **Zustand**. Check out the file `src/store/useGalacticStore.ts`:
+
+
+```js
+// src/store/useGalacticStore.ts
+
+import { create } from 'zustand';
+
+export const useGalacticStore = create((set) => ({
+  // Cosmic counter: the number of stars you've collected
+  starCount: 0,
+  // Launch a star to power up your cosmic energy!
+  launchStar: () => set((state) => ({ starCount: state.starCount + 1 })),
+}));
+```
+
+Use this store in your components to manage global state in a fun, lightweight way.
 
 ---
 
@@ -206,6 +230,20 @@ npm start
 
 ---
 
+## 🚧 Future Enhancements
+
+The following features are planned for future updates. They are currently tracked in our GitHub Issues and Project Board:
+
+- **SWR Integration:**
+For improved data fetching and caching.
+
+- **Custom Layouts & Providers:**
+To further modularize the UI and manage global contexts more effectively.
+
+- **XML Sitemap Generation:**
+To enhance SEO by providing an up-to-date sitemap for search engines.
+
+---
 ## 📜 License
 This project is licensed under the MIT License.
 
