@@ -17,11 +17,13 @@
   },
   "dependencies": {
     "@react-three/fiber": "^9.0.4",
+    "@types/three": "^0.174.0",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
     "eslint-plugin-prettier": "^5.2.3",
     "gsap": "^3.12.7",
     "husky": "^9.1.7",
+    "leva": "^0.10.0",
     "lint-staged": "^15.4.3",
     "next": "15.1.6",
     "next-intl": "^3.26.3",
