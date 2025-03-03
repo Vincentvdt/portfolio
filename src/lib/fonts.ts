@@ -14,29 +14,29 @@ export const geistMono = Geist_Mono({
 
 // Local Font
 export const nohemi = localFont({
-  src: '/fonts/Nohemi-VF-BF6438cc58ad63d.woff2',
+  src: '../../public/fonts/Nohemi-VF.woff2',
   variable: '--font-nohemi',
 })
 
 export const ntEpika = localFont({
   src: [
     {
-      path: '/fonts/NT Epika Bold (PERSONAL USE).woff2',
+      path: '../../public/fonts/NT-Epika-Bold.woff2',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '/fonts/NT Epika Medium (PERSONAL USE).woff2',
+      path: '../../public/fonts/NT-Epika-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '/fonts/NT Epika Regular (PERSONAL USE).woff2',
+      path: '../../public/fonts/NT-Epika-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '/fonts/NT Epika Thin (PERSONAL USE).woff2',
+      path: '../../public/fonts/NT-Epika-Thin.woff2',
       weight: '300',
       style: 'normal',
     },
