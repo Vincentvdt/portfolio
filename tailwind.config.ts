@@ -12,6 +12,12 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        geistSans: ['var(--font-geist-sans)'],
+        geistMono: ['var(--font-geist-mono)'],
+        ntEpika: ['var(--font-nt-epika)'],
+        nohemi: ['var(--font-nohemi)']
+      },
     },
   },
   plugins: [],
