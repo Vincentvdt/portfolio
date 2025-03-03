@@ -22,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${ntEpika.className} ${nohemi.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${ntEpika.className} ${nohemi.variable} ${geistSans.variable} ${geistMono.variable} bg-dark-gray antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
           {children}

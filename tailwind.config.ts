@@ -9,8 +9,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "gray": "#CAC5CF",
+        "dark-gray": "#3B4044",
+        "brown": "#92635E",
+        "light-gray": "#D9D9E5",
+        "red": "#C14E50",
       },
       fontFamily: {
         geistSans: ['var(--font-geist-sans)'],
