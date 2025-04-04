@@ -1,16 +1,4 @@
 import localFont from 'next/font/local'
-import { Geist, Geist_Mono } from 'next/font/google'
-
-// Google Fonts
-export const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-
-export const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
 
 // Local Font
 export const nohemi = localFont({
@@ -18,29 +6,21 @@ export const nohemi = localFont({
   variable: '--font-nohemi',
 })
 
-export const ntEpika = localFont({
-  src: [
-    {
-      path: '../../public/fonts/NT-Epika-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/NT-Epika-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/NT-Epika-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/NT-Epika-Thin.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-nt-epika',
-  display: 'swap',
+export const satoshi = localFont({
+  src: '../../public/fonts/Satoshi-Variable.woff2',
+  variable: '--font-satoshi',
+})
+
+export const franklinGothicHeavy = localFont({
+  src: '../../public/fonts/FRAHV.woff2',
+  weight: '400',
+  style: 'normal',
+  variable: '--font-franklin-gothic-heavy',
+})
+
+export const yoppaFude = localFont({
+  src: '../../public/fonts/Yoppa_Fude.woff2',
+  weight: '400',
+  style: 'normal',
+  variable: '--font-yoppa-fude',
 })

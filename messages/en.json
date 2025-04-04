@@ -1,5 +1,30 @@
 {
+  "Metadata": {
+    "title": {
+      "default": "Vincent VIDOT | Full-Stack Developer"
+    },
+    "description": "Explore Vincent VIDOT’s portfolio, showcasing modern web development expertise.",
+    "keywords": "Full-Stack Developer, Next.js, React, Web Development, JavaScript",
+    "ogTitle": "Vincent VIDOT | Full-Stack Developer",
+    "ogDescription": "Explore Vincent VIDOT’s portfolio, showcasing modern web development expertise.",
+    "ogSiteName": "Vincent VIDOT Portfolio",
+    "twitterTitle": "Vincent VIDOT | Full-Stack Developer",
+    "twitterDescription": "Discover Vincent VIDOT's work in full-stack development."
+  },
   "HomePage": {
-    "title": "Hello world!"
+    "title": "Good things are coming your way!",
+    "subtitle": "I'm currently brewing something awesome, so stay tuned!",
+    "subtitle2": "Big things are coming soon – get ready for the reveal!"
+  },
+  "Header": {
+    "job": "Full-stack Web Developer",
+    "kanjiLabel": "Click to reveal kanji"
+  },
+  "NotFoundPage": {
+    "title": {
+      "part1": "Wait, what?! How did you end up here?",
+      "part2": "This is a dead end!"
+    },
+    "text": "Don’t worry, use the links below to get back on track!"
   }
 }

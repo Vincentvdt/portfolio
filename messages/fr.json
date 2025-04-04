@@ -1,0 +1,30 @@
+{
+  "Metadata": {
+    "title": {
+      "default": "Vincent VIDOT | Développeur Full-Stack"
+    },
+    "description": "Découvrez le portfolio de Vincent VIDOT, spécialisé en développement web moderne.",
+    "keywords": "Développeur Full-Stack, Next.js, React, Développement Web, JavaScript",
+    "ogTitle": "Vincent VIDOT | Développeur Full-Stack",
+    "ogDescription": "Découvrez le portfolio de Vincent VIDOT, spécialisé en développement web moderne.",
+    "ogSiteName": "Portfolio de Vincent VIDOT",
+    "twitterTitle": "Vincent VIDOT | Développeur Full-Stack",
+    "twitterDescription": "Découvrez le travail de Vincent VIDOT en développement full-stack."
+  },
+  "HomePage": {
+    "title": "De belles choses arrivent bientôt !",
+    "subtitle": "Je suis en train de préparer quelque chose d'incroyable, restez à l'écoute !",
+    "subtitle2": "De grands changements arrivent bientôt – préparez-vous à la révélation !"
+  },
+  "Header": {
+    "job": "Développeur Web Full-Stack",
+    "kanjiLabel": "Cliquez pour révéler les kanjis"
+  },
+  "NotFoundPage": {
+    "title": {
+      "part1": "Hein ?! Comment t'es arrivé ici ?",
+      "part2": "Il n'y a rien à voir dans le coin!"
+    },
+    "text": "T'inquiète pas, utilise le bouton en-dessous pour revenir sur le bon chemin !"
+  }
+}
