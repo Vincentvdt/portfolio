@@ -33,17 +33,19 @@ export default function ComingSoon() {
   const t = useTranslations('HomePage')
 
   useGSAP(() => {
-    gsap.fromTo(
-      mainRef.current?.children,
-      { opacity: 0, y: 100 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: 0.3,
-        stagger: 0.1,
-      }
-    )
+    if (mainRef.current) {
+      gsap.fromTo(
+        mainRef.current.children,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.3,
+          stagger: 0.1,
+        }
+      )
+    }
   })
 
   return (

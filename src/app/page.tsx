@@ -1,4 +1,4 @@
-import ComingSoon from '@/pages/ComingSoon'
+import ComingSoon from '@/components/pages/ComingSoon'
 
 export default function Home() {
   return <ComingSoon />
