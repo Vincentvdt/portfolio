@@ -19,7 +19,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${satoshi.className} ${nohemi.variable} ${franklinGothicHeavy.variable} ${yoppaFude.variable} bg-red antialiased`}
+        className={`${satoshi.className} ${nohemi.variable} ${franklinGothicHeavy.variable} ${yoppaFude.variable} bg-red px-3 antialiased sm:px-5`}
       >
         <NextIntlClientProvider messages={messages} timeZone="Europe/Paris">
           {children}

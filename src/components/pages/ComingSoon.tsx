@@ -55,12 +55,12 @@ export default function ComingSoon() {
       <main
         role="main"
         ref={mainRef}
-        className="flex max-w-none flex-1 flex-col justify-center gap-12 sm:items-center"
+        className="flex max-w-none flex-1 flex-col justify-center gap-12 pb-4 sm:items-center"
       >
         <div className="flex flex-col items-center gap-4">
-          <h1 className="text-brown font-franklin-gothic-heavy text-fluid-9xl relative max-w-[951px] tracking-[-6.4px] sm:text-center">
+          <h1 className="text-brown font-franklin-gothic-heavy text-fluid-8xl sm:text-fluid-9xl relative max-w-[951px] tracking-[-6.4px] sm:text-center">
             {t('title')}
-            <span className="absolute-center text-light font-yoppa-fude text-fluid-8xl top-[70%]! left-[40%]! tracking-[-4.8px] sm:top-[50%]! sm:left-[50%]!">
+            <span className="absolute-center text-light font-yoppa-fude text-fluid-8xl white top-[70%]! left-[40%]! tracking-[-4.8px] whitespace-nowrap sm:top-[50%]! sm:left-[50%]!">
               もうすぐ
             </span>
           </h1>
