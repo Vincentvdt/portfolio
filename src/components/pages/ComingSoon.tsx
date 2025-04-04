@@ -50,6 +50,7 @@ export default function ComingSoon() {
     <>
       <Header />
       <main
+        role="main"
         ref={mainRef}
         className="flex flex-1 flex-col items-center justify-center gap-12 px-5"
       >
@@ -66,7 +67,10 @@ export default function ComingSoon() {
             {t('subtitle2')}
           </h2>
         </div>
-        <nav className="flex w-[540px] items-center justify-between">
+        <nav
+          role="navigation"
+          className="flex w-[540px] items-center justify-between"
+        >
           {links.map(({ name, href }, index) => (
             <Button key={index} text={name} href={href} isExternal={true} />
           ))}
