@@ -1,5 +1,5 @@
 {
-  "name": "next-starter",
+  "name": "vincent-vidot-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,10 +16,13 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@react-three/fiber": "^9.0.4",
-    "@tailwindcss/postcss": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
+    "clsx": "^2.1.1",
     "eslint-plugin-prettier": "^5.2.3",
     "gsap": "^3.12.7",
     "husky": "^9.1.7",
@@ -34,6 +37,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.1.2",
     "@types/node": "^22.14.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -42,7 +46,7 @@
     "eslint-config-prettier": "^10.0.1",
     "postcss": "^8.5.3",
     "prettier": "^3.4.2",
-    "tailwindcss": "^4.1.1",
+    "tailwindcss": "^4.1.2",
     "typescript": "^5"
   }
 }

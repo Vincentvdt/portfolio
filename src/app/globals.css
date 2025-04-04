@@ -1,1 +1,76 @@
 @import 'tailwindcss';
+
+body {
+  padding: 0 40px; /* Apply horizontal padding globally */
+  margin: 0; /* Optional: Reset body margin */
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+@theme {
+  --color-light: #f4e2c8;
+  --color-dark: #343331;
+  --color-brown: #3e231f;
+  --color-red: #eb2603;
+
+  --font-nohemi: var(--font-nohemi);
+  --font-yoppa-fude: var(--font-yoppa-fude);
+  --font-satoshi: var(--font-satoshi);
+  --font-franklin-gothic-heavy: var(--font-franklin-gothic-heavy);
+
+  --spacing-1: 0.5rem; /*  8px */
+  --spacing-2: 1rem; /* 16px */
+  --spacing-3: 1.5rem; /* 24px */
+  --spacing-4: 2rem; /* 32px */
+  --spacing-5: 2.5rem; /* 40px */
+  --spacing-6: 3rem; /* 48px */
+  --spacing-7: 3.5rem; /* 56px */
+  --spacing-8: 4rem; /* 64px */
+  --spacing-9: 4.5rem; /* 72px */
+  --spacing-10: 5rem; /* 80px */
+  --spacing-11: 5.5rem; /* 88px */
+  --spacing-12: 6rem; /* 96px */
+  --spacing-0_5: 0.25rem; /*  4px */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+@layer utilities {
+  .writing-mode-vertical-rl {
+    writing-mode: vertical-rl;
+  }
+
+  .writing-mode-vertical-lr {
+    writing-mode: vertical-lr;
+  }
+
+  .absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
