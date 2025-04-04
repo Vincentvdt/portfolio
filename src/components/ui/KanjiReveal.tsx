@@ -61,7 +61,7 @@ const KanjiReveal = () => {
         ref={kanjiRef}
         onClick={onClick}
         className="text-light text-fluid-4xl z-40 cursor-pointer text-center leading-normal font-bold uppercase"
-        aria-label={t('kanjiLabel')}
+        aria-label={t('kanjiTooltip')}
         aria-expanded={isVisible ? 'true' : 'false'}
         role="button"
       >

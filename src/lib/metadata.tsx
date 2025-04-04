@@ -19,17 +19,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description'), // Localized description
     keywords: t('keywords'), // Localized keywords (must be in JSON as an array)
     openGraph: {
-      title: t('ogTitle'),
-      description: t('ogDescription'),
+      title: t('openGraph.title'),
+      description: t('openGraph.description'),
       url: baseUrl,
-      siteName: t('ogSiteName'),
+      siteName: t('openGraph.siteName'),
       locale: locale?.replace('-', '_'), // Convert 'fr-FR' to 'fr_FR'
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: t('twitterTitle'),
-      description: t('twitterDescription'),
+      title: t('twitter.title'),
+      description: t('twitter.description'),
       site: '@vincentvdt',
       creator: '@vincentvdt',
     },

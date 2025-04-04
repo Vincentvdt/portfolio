@@ -44,7 +44,7 @@ const Header = () => {
           </p>
         </Link>
         <p className="text-dark text-fluid-sm font-extrabold uppercase">
-          {t('job')}
+          {t('role')}
         </p>
       </div>
       <KanjiReveal />

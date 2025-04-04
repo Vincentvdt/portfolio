@@ -23,27 +23,31 @@ const LocalSwitcherSelect = ({ defaultValue, items }: Props) => {
 
   return (
     <div
-      className={clsx(
-        'font-nohemi text-dark text-fluid-md flex items-center gap-1 font-bold uppercase'
-      )}
-      role="region"
-      aria-live="polite"
+      className="font-nohemi text-dark text-fluid-md flex items-center gap-1 font-bold uppercase"
+      role="group"
+      aria-label={t('label')}
     >
       {items.map((item, index) => (
         <React.Fragment key={item.value}>
           <button
             onClick={() => onChange(item.value)}
             className={clsx(
+              'flex h-8 min-w-[2.5rem] items-center justify-center transition-opacity duration-200',
               isPending
                 ? 'pointer-events-none opacity-60'
                 : 'cursor-pointer opacity-100',
               defaultValue === item.value && 'text-light'
             )}
-            aria-label={t('switchText', { locale: item.label })}
+            aria-label={t('switch.aria', { locale: item.label })}
+            aria-current={defaultValue === item.value ? 'true' : undefined}
           >
             {item.label}
           </button>
-          {index !== items.length - 1 && <span>/</span>}
+          {index !== items.length - 1 && (
+            <span aria-hidden="true" className="flex h-8 items-center">
+              /
+            </span>
+          )}
         </React.Fragment>
       ))}
     </div>

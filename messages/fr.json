@@ -3,7 +3,11 @@
     "srOnly": "ouvre dans un nouvel onglet"
   },
   "Locale": {
-    "switchText": "Passer à la langue {locale}"
+    "label": "Sélecteur de langue",
+    "switch": {
+      "aria": "Passer à la langue {locale}",
+      "current": "Langue actuelle : {locale}"
+    }
   },
   "Metadata": {
     "title": {
@@ -11,18 +15,31 @@
     },
     "description": "Découvrez le portfolio de Vincent VIDOT, spécialisé en développement web moderne.",
     "keywords": "Développeur Full-Stack, Next.js, React, Développement Web, JavaScript",
-    "ogTitle": "Vincent VIDOT | Développeur Full-Stack",
-    "ogDescription": "Découvrez le portfolio de Vincent VIDOT, spécialisé en développement web moderne.",
-    "ogSiteName": "Portfolio de Vincent VIDOT",
-    "twitterTitle": "Vincent VIDOT | Développeur Full-Stack",
-    "twitterDescription": "Découvrez le travail de Vincent VIDOT en développement full-stack."
+    "openGraph": {
+      "title": "Vincent VIDOT | Développeur Full-Stack",
+      "description": "Découvrez le portfolio de Vincent VIDOT, spécialisé en développement web moderne.",
+      "siteName": "Portfolio de Vincent VIDOT"
+    },
+    "twitter": {
+      "title": "Vincent VIDOT | Développeur Full-Stack",
+      "description": "Découvrez le travail de Vincent VIDOT en développement full-stack."
+    }
+  },
+  "Header": {
+    "role": "Développeur Web Full-Stack",
+    "kanjiTooltip": "Cliquez pour révéler les kanjis"
+  },
+  "Footer": {
+    "ariaLabel": "Pied de page du site"
   },
   "HomePage": {
-    "title": "De belles choses arrivent bientôt !",
-    "subtitle": "Je suis en train de préparer quelque chose d'incroyable, restez à l'écoute !",
-    "subtitle2": "De grands changements arrivent bientôt – préparez-vous à la révélation !",
+    "heading": "De belles choses arrivent bientôt !",
+    "sub": {
+      "line1": "Je suis en train de préparer quelque chose d'incroyable, restez à l'écoute !",
+      "line2": "De grands changements arrivent bientôt – préparez-vous à la révélation !"
+    },
     "accessibility": {
-      "nav": "Social media links",
+      "navLabel": "Liens vers les réseaux sociaux",
       "links": {
         "linkedin": "Voir le profil LinkedIn de Vincent Vidot",
         "github": "Voir le profil GitHub de Vincent Vidot",
@@ -30,18 +47,14 @@
       }
     }
   },
-  "Header": {
-    "job": "Développeur Web Full-Stack",
-    "kanjiLabel": "Cliquez pour révéler les kanjis"
-  },
-  "NotFoundPage": {
+  "NotFound": {
     "title": {
-      "part1": "Hein ?! Comment t'es arrivé ici ?",
-      "part2": "Il n'y a rien à voir dans le coin!"
+      "line1": "Hein ?! Comment t'es arrivé ici ?",
+      "line2": "Il n'y a rien à voir dans le coin !"
     },
-    "text": "T'inquiète pas, utilise le bouton en-dessous pour revenir sur le bon chemin !",
+    "message": "T'inquiète pas, utilise le bouton en-dessous pour revenir sur le bon chemin !",
     "accessibility": {
-      "link": "Retour à l'accueil"
+      "backLink": "Retour à l'accueil"
     }
   }
 }
