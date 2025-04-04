@@ -1,4 +1,10 @@
 {
+  "Accessibility": {
+    "srOnly": "ouvre dans un nouvel onglet"
+  },
+  "Locale": {
+    "switchText": "Passer à la langue {locale}"
+  },
   "Metadata": {
     "title": {
       "default": "Vincent VIDOT | Développeur Full-Stack"
@@ -14,7 +20,15 @@
   "HomePage": {
     "title": "De belles choses arrivent bientôt !",
     "subtitle": "Je suis en train de préparer quelque chose d'incroyable, restez à l'écoute !",
-    "subtitle2": "De grands changements arrivent bientôt – préparez-vous à la révélation !"
+    "subtitle2": "De grands changements arrivent bientôt – préparez-vous à la révélation !",
+    "accessibility": {
+      "nav": "Social media links",
+      "links": {
+        "linkedin": "Voir le profil LinkedIn de Vincent Vidot",
+        "github": "Voir le profil GitHub de Vincent Vidot",
+        "malt": "Voir le profil Malt de Vincent Vidot"
+      }
+    }
   },
   "Header": {
     "job": "Développeur Web Full-Stack",
@@ -25,6 +39,9 @@
       "part1": "Hein ?! Comment t'es arrivé ici ?",
       "part2": "Il n'y a rien à voir dans le coin!"
     },
-    "text": "T'inquiète pas, utilise le bouton en-dessous pour revenir sur le bon chemin !"
+    "text": "T'inquiète pas, utilise le bouton en-dessous pour revenir sur le bon chemin !",
+    "accessibility": {
+      "link": "Retour à l'accueil"
+    }
   }
 }

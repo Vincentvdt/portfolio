@@ -13,15 +13,18 @@ gsap.registerPlugin(useGSAP)
 
 const links = [
   {
-    name: 'Linkedin',
+    name: 'linkedin',
+    label: 'Linkedin',
     href: 'https://www.linkedin.com/in/vincentvdt/',
   },
   {
-    name: 'Github',
+    name: 'github',
+    label: 'Github',
     href: 'https://github.com/Vincentvdt',
   },
   {
-    name: 'Malt',
+    name: 'malt',
+    label: 'Malt',
     href: 'https://www.malt.fr/profile/vincentvidot1',
   },
 ]
@@ -52,29 +55,39 @@ export default function ComingSoon() {
       <main
         role="main"
         ref={mainRef}
-        className="flex flex-1 flex-col items-center justify-center gap-12 px-5"
+        className="flex max-w-none flex-1 flex-col justify-center gap-12 sm:items-center"
       >
         <div className="flex flex-col items-center gap-4">
-          <h1 className="text-brown font-franklin-gothic-heavy relative w-[951px] text-center text-9xl leading-[90%] tracking-[-6.4px]">
+          <h1 className="text-brown font-franklin-gothic-heavy text-fluid-9xl relative max-w-[951px] tracking-[-6.4px] sm:text-center">
             {t('title')}
-            <span className="absolute-center text-light font-yoppa-fude text-8xl leading-[160%] tracking-[-4.8px]">
+            <span className="absolute-center text-light font-yoppa-fude text-fluid-8xl top-[70%]! left-[40%]! tracking-[-4.8px] sm:top-[50%]! sm:left-[50%]!">
               もうすぐ
             </span>
           </h1>
-          <h2 className="text-brown font-satoshi self-stretch text-center text-2xl leading-[160%] font-extrabold tracking-[-1.2px] italic">
+          <h2 className="text-brown font-satoshi text-fluid-2xl self-stretch font-extrabold tracking-[-1.2px] italic sm:text-center">
             {t('subtitle')}
             <br />
             {t('subtitle2')}
           </h2>
         </div>
+
         <nav
+          aria-label={t('accessibility.nav')}
           role="navigation"
-          className="flex w-[540px] items-center justify-between"
+          className="flex w-full flex-col items-start justify-start gap-4 sm:flex-row sm:items-center sm:justify-center"
         >
-          {links.map(({ name, href }, index) => (
-            <Button key={index} text={name} href={href} isExternal={true} />
+          {links.map(({ name, label, href }) => (
+            <Button
+              key={name}
+              text={label}
+              href={href}
+              isExternal
+              ariaLabel={t(`accessibility.links.${name}`)}
+              className="sm:w-[160px]"
+            />
           ))}
         </nav>
+
         <LocalSwitcherSelect
           defaultValue={locale as Locale}
           items={[

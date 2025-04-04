@@ -2,6 +2,7 @@ import React, { useCallback, useTransition } from 'react'
 import { Locale } from '@/i18n/config'
 import { setUserLocale } from '@/i18n/locale'
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
 
 interface Props {
   defaultValue: Locale
@@ -10,6 +11,8 @@ interface Props {
 
 const LocalSwitcherSelect = ({ defaultValue, items }: Props) => {
   const [isPending, startTransition] = useTransition()
+
+  const t = useTranslations('Locale')
 
   const onChange = useCallback((value: string) => {
     const locale = value as Locale
@@ -21,7 +24,7 @@ const LocalSwitcherSelect = ({ defaultValue, items }: Props) => {
   return (
     <div
       className={clsx(
-        'font-nohemi text-dark flex items-center gap-1 text-sm font-bold uppercase'
+        'font-nohemi text-dark text-fluid-md flex items-center gap-1 font-bold uppercase'
       )}
       role="region"
       aria-live="polite"
@@ -36,7 +39,7 @@ const LocalSwitcherSelect = ({ defaultValue, items }: Props) => {
                 : 'cursor-pointer opacity-100',
               defaultValue === item.value && 'text-light'
             )}
-            aria-label={`Switch to ${item.label} locale`}
+            aria-label={t('switchText', { locale: item.label })}
           >
             {item.label}
           </button>

@@ -4,11 +4,13 @@ import localFont from 'next/font/local'
 export const nohemi = localFont({
   src: '../../public/fonts/Nohemi-VF.woff2',
   variable: '--font-nohemi',
+  preload: false,
 })
 
 export const satoshi = localFont({
   src: '../../public/fonts/Satoshi-Variable.woff2',
   variable: '--font-satoshi',
+  preload: false,
 })
 
 export const franklinGothicHeavy = localFont({
@@ -16,6 +18,7 @@ export const franklinGothicHeavy = localFont({
   weight: '400',
   style: 'normal',
   variable: '--font-franklin-gothic-heavy',
+  preload: false,
 })
 
 export const yoppaFude = localFont({
@@ -23,4 +26,5 @@ export const yoppaFude = localFont({
   weight: '400',
   style: 'normal',
   variable: '--font-yoppa-fude',
+  preload: false,
 })

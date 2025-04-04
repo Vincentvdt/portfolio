@@ -60,7 +60,7 @@ const KanjiReveal = () => {
       <button
         ref={kanjiRef}
         onClick={onClick}
-        className="text-light z-40 cursor-pointer text-center text-4xl leading-normal font-bold uppercase"
+        className="text-light text-fluid-4xl z-40 cursor-pointer text-center leading-normal font-bold uppercase"
         aria-label={t('kanjiLabel')}
         aria-expanded={isVisible ? 'true' : 'false'}
         role="button"
@@ -73,7 +73,10 @@ const KanjiReveal = () => {
         className="absolute-center z-30 flex items-center justify-center opacity-0"
         aria-live="polite" // Ensures screen readers announce content changes
       >
-        <span className="font-yoppa-fude text-dark writing-mode-vertical-rl mx-auto text-center leading-[100%] uppercase">
+        <span
+          aria-hidden={!isVisible}
+          className="font-yoppa-fude text-dark writing-mode-vertical-rl text-fluid-base mx-auto text-center uppercase"
+        >
           ハリファイ <br />
           フェヌイユ
         </span>

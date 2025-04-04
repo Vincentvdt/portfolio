@@ -1,4 +1,10 @@
 {
+  "Accessibility": {
+    "srOnly": "opens in a new tab"
+  },
+  "Locale": {
+    "switchText": "Switch to {locale} locale"
+  },
   "Metadata": {
     "title": {
       "default": "Vincent VIDOT | Full-Stack Developer"
@@ -14,7 +20,15 @@
   "HomePage": {
     "title": "Good things are coming your way!",
     "subtitle": "I'm currently brewing something awesome, so stay tuned!",
-    "subtitle2": "Big things are coming soon – get ready for the reveal!"
+    "subtitle2": "Big things are coming soon – get ready for the reveal!",
+    "accessibility": {
+      "nav": "Social media links",
+      "links": {
+        "linkedin": "View Vincent Vidot's LinkedIn profile",
+        "github": "View Vincent Vidot's GitHub profile",
+        "malt": "View Vincent Vidot's Malt profile"
+      }
+    }
   },
   "Header": {
     "job": "Full-stack Web Developer",
@@ -25,6 +39,9 @@
       "part1": "Wait, what?! How did you end up here?",
       "part2": "This is a dead end!"
     },
-    "text": "Don’t worry, use the links below to get back on track!"
+    "text": "Don’t worry, use the links below to get back on track!",
+    "accessibility": {
+      "link": "Back to Home"
+    }
   }
 }

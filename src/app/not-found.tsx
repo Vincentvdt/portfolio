@@ -42,21 +42,22 @@ const NotFound = () => {
   return (
     <>
       <Header />
-      <div
+      <main
+        role="main"
         ref={containerRef}
         className="flex max-w-none flex-1 flex-col items-center justify-center gap-6"
       >
-        <h1 className="text-dark font-franklin-gothic-heavy text-center text-7xl">
+        <h1 className="text-dark font-franklin-gothic-heavy text-fluid-7xl text-center">
           {t('title.part1')} <br />
           {t('title.part2')}
         </h1>
-        <h2 className="text-light font-yoppa-fude text-center text-7xl">
+        <h2 className="text-light font-yoppa-fude text-fluid-7xl text-center">
           間違った場所
         </h2>
-        <h3 className="text-dark font-franklin-gothic-heavy text-center text-5xl">
+        <h3 className="text-dark font-franklin-gothic-heavy text-fluid-5xl text-center">
           {t('text')}
         </h3>
-        <Button text="Home" href={'/'} />
+        <Button text="Home" href={'/'} ariaLabel={t('accessibility.link')} />
         <LocalSwitcherSelect
           defaultValue={locale as Locale}
           items={[
@@ -70,7 +71,7 @@ const NotFound = () => {
             },
           ]}
         />
-      </div>
+      </main>
     </>
   )
 }

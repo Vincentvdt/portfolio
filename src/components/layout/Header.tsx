@@ -39,11 +39,11 @@ const Header = () => {
         className="font-nohemi flex flex-col items-start gap-0.5"
       >
         <Link href="/">
-          <p className="text-light text-lg leading-tight font-bold uppercase">
+          <p className="text-light text-fluid-lg font-bold uppercase">
             Vincent VIDOT
           </p>
         </Link>
-        <p className="text-dark text-sm leading-tight font-extrabold uppercase">
+        <p className="text-dark text-fluid-sm font-extrabold uppercase">
           {t('job')}
         </p>
       </div>
