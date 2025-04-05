@@ -2,11 +2,6 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const OGSize = {
-  width: 1200,
-  height: 630,
-}
-
 export async function GET(request: Request): Promise<Response> {
   try {
     const { searchParams } = new URL(request.url)
@@ -25,8 +20,8 @@ export async function GET(request: Request): Promise<Response> {
       (
         <div
           style={{
-            width: `${OGSize.width}px`,
-            height: `${OGSize.height}px`,
+            width: `1200px`,
+            height: `630px`,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -52,7 +47,8 @@ export async function GET(request: Request): Promise<Response> {
         </div>
       ),
       {
-        ...OGSize,
+        width: 1200,
+        height: 630,
         fonts: [{ name: 'FRAHV', data: fontData, style: 'normal' }],
       }
     )

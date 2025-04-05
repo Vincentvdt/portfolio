@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { baseUrl } from '@/app/sitemap'
-import { OGSize } from '@/app/api/og/route'
 
 type Props = {
   params: { locale: string }
@@ -41,7 +40,8 @@ export async function generateMetadata({
       images: [
         {
           url: ogImageUrl,
-          ...OGSize,
+          width: 1200,
+          height: 630,
           alt: 'OG Image',
         },
       ],
