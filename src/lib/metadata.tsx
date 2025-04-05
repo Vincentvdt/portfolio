@@ -19,8 +19,8 @@ export async function generateMetadata({
   const localeForOG = locale?.replace('-', '_') || 'en_US'
 
   const ogImageUrl = `${baseUrl}/api/og?title=${encodeURIComponent(
-    t('openGraph.image.title')
-  )}&description=${encodeURIComponent(t('openGraph.image.description'))}`
+    t('image.title')
+  )}&description=${encodeURIComponent(t('image.description'))}`
 
   return {
     metadataBase: new URL(baseUrl),
