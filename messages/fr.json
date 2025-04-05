@@ -11,18 +11,23 @@
   },
   "Metadata": {
     "title": {
-      "default": "Vincent VIDOT | Développeur Full-Stack"
+      "default": "Vincent VIDOT | Développeur Full-Stack Freelance"
     },
-    "description": "Découvrez le portfolio de Vincent VIDOT, spécialisé en développement web moderne.",
-    "keywords": "Développeur Full-Stack, Next.js, React, Développement Web, JavaScript",
+    "description": "Développeur full-stack freelance français. Je conçois des applications web modernes et responsives avec Next.js, React et Node.js.",
+    "keywords": "Vincent VIDOT, Développeur Full-Stack Freelance, Développeur Web, Next.js, React, Node.js, JavaScript, Tailwind CSS, Portfolio",
+    "image": {
+      "title": "Vincent Vidot",
+      "description": "Développeur Full-Stack Freelance basé en France",
+      "alt": "Vincent VIDOT | Portfolio de Développeur Full-Stack Freelance"
+    },
     "openGraph": {
-      "title": "Vincent VIDOT | Développeur Full-Stack",
-      "description": "Découvrez le portfolio de Vincent VIDOT, spécialisé en développement web moderne.",
+      "title": "Vincent VIDOT | Développeur Full-Stack Freelance",
+      "description": "Développeur full-stack freelance français. Je conçois des applications web modernes et responsives avec Next.js, React et Node.js.",
       "siteName": "Portfolio de Vincent VIDOT"
     },
     "twitter": {
-      "title": "Vincent VIDOT | Développeur Full-Stack",
-      "description": "Découvrez le travail de Vincent VIDOT en développement full-stack."
+      "title": "Vincent VIDOT | Développeur Full-Stack Freelance",
+      "description": "Découvrez le portfolio de Vincent VIDOT, développeur full-stack freelance français spécialisé dans les applications web modernes."
     }
   },
   "Header": {

@@ -1,30 +1,50 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { baseUrl } from '@/app/sitemap'
+import { OGSize } from '@/app/api/og/route'
 
 type Props = {
-  params: Promise<{ locale: string }>
+  params: { locale: string }
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params
+export async function generateMetadata({
+  params: { locale },
+}: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'Metadata' })
+
+  const keywordsRaw = t('keywords')
+  const keywords = Array.isArray(keywordsRaw)
+    ? keywordsRaw
+    : keywordsRaw.split(',').map((kw: string) => kw.trim())
+
+  const localeForOG = locale?.replace('-', '_') || 'en_US'
+
+  const ogImageUrl = `${baseUrl}/api/og?title=${encodeURIComponent(
+    t('openGraph.image.title')
+  )}&description=${encodeURIComponent(t('openGraph.image.description'))}`
 
   return {
     metadataBase: new URL(baseUrl),
     title: {
-      default: t('title.default'), // Localized title
+      default: t('title.default'),
       template: `%s | ${t('title.default')}`,
     },
-    description: t('description'), // Localized description
-    keywords: t('keywords'), // Localized keywords (must be in JSON as an array)
+    description: t('description'),
+    keywords,
     openGraph: {
       title: t('openGraph.title'),
       description: t('openGraph.description'),
       url: baseUrl,
       siteName: t('openGraph.siteName'),
-      locale: locale?.replace('-', '_'), // Convert 'fr-FR' to 'fr_FR'
+      locale: localeForOG,
       type: 'website',
+      images: [
+        {
+          url: ogImageUrl,
+          ...OGSize,
+          alt: 'OG Image',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
@@ -32,6 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t('twitter.description'),
       site: '@vincentvdt',
       creator: '@vincentvdt',
+      images: [ogImageUrl],
     },
     robots: {
       index: true,
