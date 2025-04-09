@@ -40,11 +40,11 @@ const KanjiReveal = () => {
     if (textRef.current && kanjiRef.current) {
       // GSAP animation for the text visibility and kanji button
       gsap.to(textRef.current, {
+        duration: 0.6,
         opacity: isVisible ? 1 : 0,
-        duration: 0.8,
-        ease: 'elastic.out',
+        ease: 'bounce.out',
         pointerEvents: isVisible ? 'unset' : 'none',
-        y: isVisible ? 70 : 50,
+        y: isVisible ? 90 : 60, // Adjust y value to control vertical position
       })
 
       gsap.to(kanjiRef.current, {
@@ -69,7 +69,7 @@ const KanjiReveal = () => {
 
       <div
         ref={textRef}
-        className="absolute-center z-30 flex items-center justify-center opacity-0"
+        className="absolute top-[10px] left-[50%] z-30 mt-2 translate-x-[-50%] translate-y-[-50%] opacity-0" // top-full to place below, mt-2 for spacing
         aria-live="polite" // Ensures screen readers announce content changes
       >
         <span
