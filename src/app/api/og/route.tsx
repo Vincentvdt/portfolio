@@ -11,11 +11,6 @@ export async function GET(request: Request): Promise<Response> {
       searchParams.get('description') ||
       'Freelance Full-Stack Developer based in France'
 
-    // Load custom font (FRAHV.ttf)
-    const fontData = await fetch(
-      new URL('../../../../public/fonts/FRAHV.ttf', import.meta.url)
-    ).then((res) => res.arrayBuffer())
-
     return new ImageResponse(
       (
         <div
@@ -36,7 +31,6 @@ export async function GET(request: Request): Promise<Response> {
             style={{
               fontSize: 64,
               fontWeight: 700,
-              fontFamily: 'FRAHV',
             }}
           >
             {title}
@@ -49,7 +43,6 @@ export async function GET(request: Request): Promise<Response> {
       {
         width: 1200,
         height: 630,
-        fonts: [{ name: 'FRAHV', data: fontData, style: 'normal' }],
       }
     )
   } catch {
