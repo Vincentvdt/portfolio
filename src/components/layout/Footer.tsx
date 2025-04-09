@@ -36,7 +36,6 @@ const Footer = () => {
 
   return (
     <footer
-      role="contentinfo"
       aria-labelledby="footer-heading"
       className="border-dark/10 mt-auto w-full border-t py-4 sm:py-6"
     >

@@ -30,10 +30,7 @@ const Header = () => {
   })
 
   return (
-    <header
-      role="banner"
-      className="flex w-full justify-between self-stretch py-5"
-    >
+    <header className="flex w-full justify-between self-stretch py-5">
       <div
         ref={containerRef}
         className="font-nohemi flex flex-col items-start gap-0.5"

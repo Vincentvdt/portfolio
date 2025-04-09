@@ -46,7 +46,6 @@ export default function ComingSoon() {
 
   return (
     <main
-      role="main"
       ref={mainRef}
       className="flex max-w-none flex-1 flex-col justify-center gap-12 pb-4 sm:items-center"
     >
@@ -66,7 +65,6 @@ export default function ComingSoon() {
 
       <nav
         aria-label={t('accessibility.navLabel')}
-        role="navigation"
         className="flex w-full flex-col items-start justify-start gap-4 sm:flex-row sm:items-center sm:justify-center"
       >
         {links.map(({ name, label, href }) => (

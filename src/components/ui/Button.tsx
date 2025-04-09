@@ -19,7 +19,7 @@ const ButtonCore = ({
   text,
   className,
 }: Pick<ButtonProps, 'text' | 'className'>) => {
-  const buttonRef = useRef<HTMLButtonElement>(null!)
+  const buttonRef = useRef<HTMLSpanElement>(null!)
   const underlineRef = useRef<HTMLSpanElement>(null!)
 
   const { contextSafe } = useGSAP({ scope: buttonRef })
@@ -41,14 +41,14 @@ const ButtonCore = ({
   )
 
   return (
-    <button
+    <span
       ref={buttonRef}
       onMouseEnter={animateIn}
       onMouseLeave={animateOut}
       onTouchStart={animateIn}
       onTouchEnd={animateOut}
       className={clsx(
-        'text-light font-franklin-gothic-heavy text-fluid-3xl relative w-full cursor-pointer text-left tracking-[-0.8px] uppercase sm:text-center',
+        'text-light font-franklin-gothic-heavy text-fluid-3xl relative inline-block w-full cursor-pointer text-left tracking-[-0.8px] uppercase sm:text-center',
         className
       )}
     >
@@ -60,7 +60,7 @@ const ButtonCore = ({
           className="bg-light pointer-events-none absolute -bottom-1 left-0 h-[10px] w-full origin-left scale-x-0 transition-transform duration-300 ease-out"
         />
       </span>
-    </button>
+    </span>
   )
 }
 
