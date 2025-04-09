@@ -23,10 +23,10 @@ export default async function RootLayout({
     <html lang={locale}>
       <body
         className={clsx(
-          'bg-red px-3 antialiased sm:px-5',
           nohemi.variable,
           franklinGothicHeavy.variable,
-          yoppaFude.variable
+          yoppaFude.variable,
+          'bg-red font-nohemi px-3 font-bold antialiased sm:px-5'
         )}
       >
         <NextIntlClientProvider messages={messages} timeZone="Europe/Paris">

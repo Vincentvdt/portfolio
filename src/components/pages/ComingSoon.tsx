@@ -56,7 +56,7 @@ export default function ComingSoon() {
             もうすぐ
           </span>
         </h1>
-        <h2 className="text-brown font-nohemi text-fluid-2xl self-stretch font-bold italic sm:text-center">
+        <h2 className="text-brown text-fluid-2xl self-stretch italic sm:text-center">
           {t('sub.line1')}
           <br />
           {t('sub.line2')}

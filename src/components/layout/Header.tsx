@@ -31,12 +31,9 @@ const Header = () => {
 
   return (
     <header className="flex w-full justify-between self-stretch py-5">
-      <div
-        ref={containerRef}
-        className="font-nohemi flex flex-col items-start gap-0.5"
-      >
+      <div ref={containerRef} className="flex flex-col items-start gap-0.5">
         <Link href="/">
-          <p className="text-light text-fluid-lg font-bold uppercase">
+          <p className="text-light text-fluid-lg font-extrabold uppercase">
             Vincent VIDOT
           </p>
         </Link>

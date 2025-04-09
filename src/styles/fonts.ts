@@ -48,26 +48,30 @@ const nohemi = localFont({
       style: 'normal',
     },
   ],
+  display: 'swap',
   variable: '--font-nohemi',
-  preload: true,
-  fallback: ['system-ui', 'arial'],
+  fallback: ['system-ui'],
+  adjustFontFallback: 'Arial',
 })
 
 const franklinGothicHeavy = localFont({
   src: '../assets/fonts/franklin-gothic/franklin-gothic-heavy.woff2',
-  weight: '400',
+  weight: '600',
   style: 'normal',
+  display: 'swap',
   variable: '--font-franklin-gothic-heavy',
-  preload: true,
+  adjustFontFallback: 'Arial',
+  preload: false,
 })
 
 const yoppaFude = localFont({
   src: '../assets/fonts/yoppa-fude/yoppa-fude.woff2',
   weight: '400',
   style: 'normal',
+  display: 'swap',
   variable: '--font-yoppa-fude',
-  preload: true,
-  fallback: ['Noto Sans JP'],
+  adjustFontFallback: 'Arial',
+  preload: false,
 })
 
 export { nohemi, franklinGothicHeavy, yoppaFude }

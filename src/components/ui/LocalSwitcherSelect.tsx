@@ -23,7 +23,7 @@ const LocalSwitcherSelect = ({ defaultValue, items }: Props) => {
 
   return (
     <div
-      className="font-nohemi text-dark text-fluid-md flex items-center gap-1 font-bold uppercase"
+      className="text-dark text-fluid-md flex items-center gap-1 uppercase"
       role="group"
       aria-label={t('label')}
     >
