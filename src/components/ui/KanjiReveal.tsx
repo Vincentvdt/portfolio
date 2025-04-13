@@ -1,85 +1,124 @@
-'use client'
-
-import React, { useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
+import { useEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { useTranslations } from 'next-intl'
-
-gsap.registerPlugin(useGSAP)
 
 const KanjiReveal = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(false)
-
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const containerRef = useRef<HTMLDivElement>(null!)
-  const textRef = useRef<HTMLDivElement>(null!)
-  const kanjiRef = useRef<HTMLButtonElement>(null!)
+  const svgRef = useRef<SVGSVGElement>(null!)
+  const kanjiRef = useRef<HTMLSpanElement>(null!)
+  const hiddenTextRef = useRef<HTMLDivElement>(null!)
 
-  const t = useTranslations('Header')
-
-  const { contextSafe } = useGSAP(
-    {
-      scope: containerRef,
-      revertOnUpdate: true,
-    },
-    [containerRef, textRef]
-  )
-
-  const onClick = contextSafe(() => {
-    setIsVisible((prev) => !prev)
-  })
+  const { contextSafe } = useGSAP({ scope: containerRef })
 
   useGSAP(() => {
-    gsap.fromTo(
-      containerRef.current,
-      { opacity: 0, x: 100 },
-      { opacity: 1, x: 0, duration: 1 }
-    )
-  })
-
-  useEffect(() => {
-    if (textRef.current && kanjiRef.current) {
-      // GSAP animation for the text visibility and kanji button
-      gsap.to(textRef.current, {
-        duration: 0.6,
-        opacity: isVisible ? 1 : 0,
-        ease: 'bounce.out',
-        pointerEvents: isVisible ? 'unset' : 'none',
-        y: isVisible ? 90 : 60, // Adjust y value to control vertical position
-      })
-
-      gsap.to(kanjiRef.current, {
-        rotate: isVisible ? 10 : 0,
-        duration: 0.8,
-        ease: 'elastic.out',
+    if (svgRef.current) {
+      gsap.to(svgRef.current, {
+        rotate: 360,
+        duration: 15,
+        ease: 'linear',
+        repeat: -1,
+        transformOrigin: '50% 50%',
       })
     }
-  }, [isVisible]) // Runs the effect when the visibility changes
+  }, [])
+
+  const handleOnClick = contextSafe(() => setIsOpen((prevState) => !prevState))
+
+  useEffect(() => {
+    if (hiddenTextRef.current) {
+      gsap.killTweensOf(hiddenTextRef.current)
+      gsap.killTweensOf(kanjiRef.current)
+
+      if (isOpen) {
+        gsap.fromTo(
+          hiddenTextRef.current,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 80, duration: 0.5, ease: 'power2.out' }
+        )
+        gsap.to(kanjiRef.current, {
+          rotate: 20,
+          duration: 1,
+          ease: 'elastic.out',
+        })
+      } else {
+        gsap.to(kanjiRef.current, { rotate: 0, duration: 0.15 })
+        gsap.to(hiddenTextRef.current, {
+          opacity: 0,
+          y: 10,
+          duration: 0.5,
+          ease: 'power2.in',
+        })
+      }
+    }
+  }, [isOpen])
+
+  const handleMouseEnter = contextSafe(() => {
+    if (kanjiRef.current) {
+      gsap.to(kanjiRef.current, {
+        scale: 0.9,
+        duration: 0.25,
+        ease: 'power1.out',
+      })
+    }
+  })
+
+  const handleMouseLeave = contextSafe(() => {
+    if (kanjiRef.current) {
+      gsap.to(kanjiRef.current, {
+        scale: 1,
+        duration: 0.25,
+        ease: 'power1.out',
+      })
+    }
+  })
 
   return (
-    <div className="relative" ref={containerRef}>
-      <button
-        ref={kanjiRef}
-        onClick={onClick}
-        className="text-light text-fluid-4xl z-40 cursor-pointer text-center leading-normal font-bold uppercase"
-        aria-label={t('kanjiTooltip')}
-        aria-expanded={isVisible ? 'true' : 'false'}
-      >
+    <div
+      ref={containerRef}
+      aria-expanded={isOpen}
+      className="font-yoppa-fude relative flex h-[70px] w-[70px] cursor-pointer items-center justify-center"
+      onClick={handleOnClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <span ref={kanjiRef} className="text-light text-fluid-4xl uppercase">
         愛
-      </button>
+      </span>
 
       <div
-        ref={textRef}
-        className="absolute top-[10px] left-[50%] z-30 mt-2 translate-x-[-50%] translate-y-[-50%] opacity-0" // top-full to place below, mt-2 for spacing
-        aria-live="polite" // Ensures screen readers announce content changes
+        ref={hiddenTextRef}
+        className="writing-mode-vertical-rl text-dark text-fluid-xs pointer-events-none absolute font-medium opacity-0"
       >
-        <span
-          aria-hidden={!isVisible}
-          className="font-yoppa-fude text-dark writing-mode-vertical-rl text-fluid-base mx-auto text-center uppercase"
-        >
-          ハリファイ <br />
-          フェヌイユ
-        </span>
+        <p>ハリファイ</p>
+        <p>フェヌイユ</p>
       </div>
+
+      <svg
+        className="pointer-events-none absolute"
+        viewBox="0 0 140 140"
+        width="70"
+        height="70"
+        xmlns="http://www.w3.org/2000/svg"
+        ref={svgRef}
+      >
+        <defs>
+          <path
+            id="circlePath"
+            d="M70,70 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"
+          />
+        </defs>
+        <text
+          className="fill-light text-fluid-xs font-medium"
+          letterSpacing="2px"
+          wordSpacing="4px"
+          textAnchor="middle"
+        >
+          <textPath href="#circlePath" startOffset="50%">
+            VINCENT VIDOT FULLSTACK DEVELOPER
+          </textPath>
+        </text>
+      </svg>
     </div>
   )
 }
