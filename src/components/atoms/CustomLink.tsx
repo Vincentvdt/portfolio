@@ -10,16 +10,16 @@ interface LinkProps {
 }
 
 const CustomLink = ({ text, href, ariaLabel, className }: LinkProps) => (
-    <Link
-      href={href}
-      aria-label={ariaLabel}
-      className={clsx(
-        'text-light text-fluid-base font-semibold uppercase',
-        className
-      )}
-    >
-      {text}
-    </Link>
-  )
+  <Link
+    href={href}
+    aria-label={ariaLabel}
+    className={clsx(
+      'text-light text-fluid-base font-semibold uppercase',
+      className
+    )}
+  >
+    {text}
+  </Link>
+)
 
 export default CustomLink

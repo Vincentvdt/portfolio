@@ -1,5 +1,5 @@
-import ComingSoon from '@/components/pages/ComingSoon'
+import React from 'react'
 
-export default function Home() {
-  return <ComingSoon />
-}
+const HomePage = () => <h1>Rien</h1>
+
+export default HomePage

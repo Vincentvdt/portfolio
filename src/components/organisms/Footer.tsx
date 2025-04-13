@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
-import LocalSwitcherSelect from '@/components/ui/LocalSwitcherSelect'
+import LanguageSwitcher from '@/components/molecules/LanguageSwitcher'
 import { Locale } from '@/i18n/config'
 import { useLocale, useTranslations } from 'next-intl'
 import { useGSAP } from '@gsap/react'
@@ -43,7 +43,7 @@ const Footer = () => {
         {t('ariaLabel')}
       </h2>
       <div ref={intlRef} className="flex justify-start sm:justify-end">
-        <LocalSwitcherSelect
+        <LanguageSwitcher
           defaultValue={locale as Locale}
           items={[
             { value: 'en', label: 'EN' },

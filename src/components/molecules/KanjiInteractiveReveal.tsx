@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useTranslations } from 'next-intl'
 
-const KanjiReveal = () => {
+const KanjiInteractiveReveal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const containerRef = useRef<HTMLDivElement>(null!)
   const svgRef = useRef<SVGSVGElement>(null!)
@@ -132,4 +132,4 @@ const KanjiReveal = () => {
   )
 }
 
-export default KanjiReveal
+export default KanjiInteractiveReveal

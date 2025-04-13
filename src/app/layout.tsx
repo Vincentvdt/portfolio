@@ -6,8 +6,8 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
+import Header from '@/components/organisms/Header'
+import Footer from '@/components/organisms/Footer'
 import clsx from 'clsx'
 
 export default async function RootLayout({
@@ -31,7 +31,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages} timeZone="Europe/Paris">
           <Header />
-          {children}
+          <main>{children}</main>
           <Analytics />
           <SpeedInsights />
           <Footer />

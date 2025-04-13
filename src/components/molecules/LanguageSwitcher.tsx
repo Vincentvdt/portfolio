@@ -9,7 +9,7 @@ interface Props {
   items: Array<{ value: string; label: string }>
 }
 
-const LocalSwitcherSelect = ({ defaultValue, items }: Props) => {
+const LanguageSwitcher = ({ defaultValue, items }: Props) => {
   const [isPending, startTransition] = useTransition()
 
   const t = useTranslations('Locale')
@@ -54,4 +54,4 @@ const LocalSwitcherSelect = ({ defaultValue, items }: Props) => {
   )
 }
 
-export default LocalSwitcherSelect
+export default LanguageSwitcher

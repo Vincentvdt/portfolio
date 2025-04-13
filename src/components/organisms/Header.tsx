@@ -1,9 +1,9 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
-import KanjiReveal from '@/components/ui/KanjiReveal'
+import KanjiInteractiveReveal from '@/components/molecules/KanjiInteractiveReveal'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import CustomLink from '@/components/ui/CustomLink'
+import CustomLink from '@/components/atoms/CustomLink'
 
 gsap.registerPlugin(useGSAP)
 
@@ -20,14 +20,14 @@ const Header = () => {
           <li>
             <CustomLink
               text={t('navigation.home.label')}
-              href="/"
+              href="/public"
               ariaLabel={t('navigation.home.ariaLabel')}
             />
           </li>
           <li>
             <CustomLink
               text={t('navigation.projects.label')}
-              href="/"
+              href="/public"
               ariaLabel={t('navigation.projects.ariaLabel')}
             />
           </li>
@@ -57,7 +57,7 @@ const Header = () => {
             </p>
           </div>
         </div>
-        <KanjiReveal />
+        <KanjiInteractiveReveal />
       </div>
     </header>
   )

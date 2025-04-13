@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import Button from '@/components/ui/Button'
+import Button from '@/components/atoms/Button'
 
 gsap.registerPlugin(useGSAP)
 
