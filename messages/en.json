@@ -31,8 +31,25 @@
     }
   },
   "Header": {
+    "living": "Tours and Toulouse",
     "role": "Full-stack Web Developer",
-    "kanjiTooltip": "Click to reveal kanji"
+    "kanjiTooltip": "Click to reveal kanji",
+    "ariaLabel": "Main Navigation",
+    "navigation": {
+      "ariaLabel": "Main Navigation",
+      "home": {
+        "label": "Home",
+        "ariaLabel": "Go to Home page"
+      },
+      "projects": {
+        "label": "Projects",
+        "ariaLabel": "Go to Projects section"
+      },
+      "contact": {
+        "label": "Contact",
+        "ariaLabel": "Go to Contact section"
+      }
+    }
   },
   "Footer": {
     "ariaLabel": "Website Footer"

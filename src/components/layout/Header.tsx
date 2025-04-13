@@ -1,47 +1,64 @@
-'use client'
-
-import React, { useRef } from 'react'
+import React from 'react'
 import { useTranslations } from 'next-intl'
 import KanjiReveal from '@/components/ui/KanjiReveal'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import Link from 'next/link'
+import CustomLink from '@/components/ui/CustomLink'
 
 gsap.registerPlugin(useGSAP)
 
 const Header = () => {
-  const containerRef = useRef<HTMLDivElement>(null!)
-
   const t = useTranslations('Header')
 
-  useGSAP(() => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current?.children,
-        { opacity: 0, x: -100 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          stagger: 0.1,
-        }
-      )
-    }
-  })
-
   return (
-    <header className="flex w-full justify-between self-stretch py-5">
-      <div ref={containerRef} className="flex flex-col items-start gap-0.5">
-        <Link href="/">
-          <p className="text-light text-fluid-lg font-extrabold uppercase">
-            Vincent VIDOT
-          </p>
-        </Link>
-        <p className="text-dark text-fluid-sm font-extrabold uppercase">
-          {t('role')}
-        </p>
+    <header
+      className="flex w-full items-start justify-between self-stretch px-0 py-2"
+      aria-label={t('ariaLabel')}
+    >
+      <nav aria-label={t('navigation.ariaLabel')}>
+        <ul className="flex items-start gap-12">
+          <li>
+            <CustomLink
+              text={t('navigation.home.label')}
+              href="/"
+              ariaLabel={t('navigation.home.ariaLabel')}
+            />
+          </li>
+          <li>
+            <CustomLink
+              text={t('navigation.projects.label')}
+              href="/"
+              ariaLabel={t('navigation.projects.ariaLabel')}
+            />
+          </li>
+        </ul>
+      </nav>
+      <div className="flex items-start gap-[168px]">
+        <div className="flex flex-row items-center gap-12">
+          <div className="text-light flex flex-col items-start gap-0.5 uppercase">
+            <h2>Living</h2>
+            <p className="font-semibold">
+              [<span className="font-bold">{t('living')}</span>]
+            </p>
+          </div>
+
+          <div className="text-light flex flex-col items-start gap-0.5 uppercase">
+            <h2>Contact</h2>
+            <p className="font-semibold">
+              [
+              <a
+                className="cursor-pointer font-bold"
+                href="mailto:vincent.vidot3@gmail.com"
+                aria-label="Email Vincent Vidot"
+              >
+                vincent.vidot3@gmail.com
+              </a>
+              ]
+            </p>
+          </div>
+        </div>
+        <KanjiReveal />
       </div>
-      <KanjiReveal />
     </header>
   )
 }
