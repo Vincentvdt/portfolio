@@ -1,6 +1,9 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { useTranslations } from 'next-intl'
 
 const KanjiReveal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -10,6 +13,7 @@ const KanjiReveal = () => {
   const hiddenTextRef = useRef<HTMLDivElement>(null!)
 
   const { contextSafe } = useGSAP({ scope: containerRef })
+  const t = useTranslations('Header')
 
   useGSAP(() => {
     if (svgRef.current) {
@@ -77,6 +81,7 @@ const KanjiReveal = () => {
     <div
       ref={containerRef}
       aria-expanded={isOpen}
+      aria-label={t('kanjiTooltip')}
       className="font-yoppa-fude relative flex h-[70px] w-[70px] cursor-pointer items-center justify-center"
       onClick={handleOnClick}
       onMouseEnter={handleMouseEnter}
@@ -88,6 +93,7 @@ const KanjiReveal = () => {
 
       <div
         ref={hiddenTextRef}
+        aria-hidden={!isOpen}
         className="writing-mode-vertical-rl text-dark text-fluid-xs pointer-events-none absolute font-medium opacity-0"
       >
         <p>ハリファイ</p>
@@ -102,6 +108,9 @@ const KanjiReveal = () => {
         xmlns="http://www.w3.org/2000/svg"
         ref={svgRef}
       >
+        <desc>
+          Text path showing &#34;VINCENT VIDOT FULLSTACK DEVELOPER&#34;
+        </desc>
         <defs>
           <path
             id="circlePath"
