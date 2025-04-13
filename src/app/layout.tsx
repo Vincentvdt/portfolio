@@ -26,7 +26,7 @@ export default async function RootLayout({
           nohemi.variable,
           franklinGothicHeavy.variable,
           yoppaFude.variable,
-          'bg-red font-nohemi px-3 font-bold antialiased sm:px-5'
+          'bg-red font-nohemi px-3 antialiased sm:px-5'
         )}
       >
         <NextIntlClientProvider messages={messages} timeZone="Europe/Paris">
