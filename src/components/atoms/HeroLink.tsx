@@ -2,7 +2,7 @@
 
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
 interface HeroButtonProps {
   text: string
@@ -51,6 +51,7 @@ const HeroLink = ({ text, href, ariaLabel }: HeroButtonProps) => {
       onMouseLeave={handleLeave}
       onFocus={handleEnter}
       onBlur={handleLeave}
+      onClick={() => containerRef.current?.blur()}
       className="border-light bg-red focus-visible:ring-light clip-margin relative inline-flex w-[115px] transform-gpu items-center justify-center overflow-clip rounded-full border-3 font-bold uppercase focus-visible:ring-2 focus-visible:outline-none"
     >
       <span
@@ -59,7 +60,7 @@ const HeroLink = ({ text, href, ariaLabel }: HeroButtonProps) => {
       />
       <span
         ref={textRef}
-        className="text-fluid-base text-light relative z-10 mb-[-2px] block px-2.5 py-0.5"
+        className="text-fluid-base text-light relative z-10 mb-[-2.5px] block px-2.5 py-0.5"
       >
         {text}
       </span>
