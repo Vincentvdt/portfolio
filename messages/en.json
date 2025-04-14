@@ -54,19 +54,9 @@
   "Footer": {
     "ariaLabel": "Website Footer"
   },
-  "HomePage": {
-    "heading": "Good things are coming your way!",
-    "sub": {
-      "line1": "I'm currently brewing something awesome, so stay tuned!",
-      "line2": "Big things are coming soon – get ready for the reveal!"
-    },
-    "accessibility": {
-      "navLabel": "Social media links",
-      "links": {
-        "linkedin": "View Vincent Vidot's LinkedIn profile",
-        "github": "View Vincent Vidot's GitHub profile",
-        "malt": "View Vincent Vidot's Malt profile"
-      }
+  "HeroBanner": {
+    "links": {
+      "ariaLabel": "View Vincent Vidot's {link} profile"
     }
   },
   "NotFound": {
