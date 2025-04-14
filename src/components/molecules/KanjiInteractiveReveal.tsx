@@ -47,12 +47,16 @@ const KanjiInteractiveReveal = () => {
   })
 
   const handleOnClick = () => {
-    setIsOpen((prevState) => !prevState)
-    if (!isOpen) {
-      timelineRef.current?.play()
-    } else {
-      timelineRef.current?.reverse()
-    }
+    setIsOpen((prevState) => {
+      const newState = !prevState
+      if (newState) {
+        timelineRef.current?.play()
+      } else {
+        timelineRef.current?.reverse()
+      }
+
+      return newState
+    })
   }
 
   const handleOnMouseEnter = () => {
@@ -94,6 +98,9 @@ const KanjiInteractiveReveal = () => {
         duration: 1.5,
         ease: 'expoScale(1,2,power2.out)',
         overwrite: true,
+        onComplete: () => {
+          gsap.set(rotationTweenRef.current, { timeScale: 1, paused: false })
+        },
       })
     }
   }
