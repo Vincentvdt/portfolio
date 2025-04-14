@@ -81,6 +81,9 @@ body {
 
   --text-9xl: clamp(6rem, 10vw, 8rem);
   --text-9xl--line-height: 1;
+
+  --text-h1: clamp(5rem, 20vw + 1rem, 16rem);
+  --text-h1--line-height: 1;
 }
 
 @layer utilities {
@@ -167,6 +170,11 @@ body {
   .text-fluid-9xl {
     font-size: var(--text-9xl);
     line-height: var(--text-9xl--line-height);
+  }
+
+  .text-fluid-h1 {
+    font-size: var(--text-h1);
+    line-height: var(--text-h1--line-height);
   }
 }
 

@@ -51,7 +51,7 @@ const HeroLink = ({ text, href, ariaLabel }: HeroButtonProps) => {
       onMouseLeave={handleLeave}
       onFocus={handleEnter}
       onBlur={handleLeave}
-      className="border-light focus-visible:ring-light clip-margin relative inline-block transform-gpu overflow-clip rounded-full border-3 font-bold uppercase focus-visible:ring-2 focus-visible:outline-none"
+      className="border-light bg-red focus-visible:ring-light clip-margin relative inline-flex w-[115px] transform-gpu items-center justify-center overflow-clip rounded-full border-3 font-bold uppercase focus-visible:ring-2 focus-visible:outline-none"
     >
       <span
         ref={bgRef}
@@ -59,7 +59,7 @@ const HeroLink = ({ text, href, ariaLabel }: HeroButtonProps) => {
       />
       <span
         ref={textRef}
-        className="text-fluid-base text-light relative z-10 block px-2 py-0.5"
+        className="text-fluid-base text-light relative z-10 mb-[-2px] block px-2.5 py-0.5"
       >
         {text}
       </span>

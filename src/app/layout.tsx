@@ -36,10 +36,10 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages} timeZone="Europe/Paris">
           <Header />
-          <main>{children}</main>
+          <main className="m-auto">{children}</main>
+          <Footer />
           <Analytics />
           <SpeedInsights />
-          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
