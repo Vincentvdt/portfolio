@@ -3,8 +3,6 @@ import { useTranslations } from 'next-intl'
 import KanjiInteractiveReveal from '@/components/molecules/KanjiInteractiveReveal'
 import CustomLink from '@/components/atoms/CustomLink'
 
-gsap.registerPlugin(useGSAP)
-
 const Header = () => {
   const t = useTranslations('Header')
 
@@ -18,14 +16,14 @@ const Header = () => {
           <li>
             <CustomLink
               text={t('navigation.home.label')}
-              href="/public"
+              href="/"
               ariaLabel={t('navigation.home.ariaLabel')}
             />
           </li>
           <li>
             <CustomLink
               text={t('navigation.projects.label')}
-              href="/public"
+              href="/"
               ariaLabel={t('navigation.projects.ariaLabel')}
             />
           </li>
