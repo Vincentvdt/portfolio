@@ -38,12 +38,12 @@ const HeroBanner = () => {
         <span
           aria-hidden="true"
           lang="ja"
-          className="text-brown text-fluid-9xl font-regular font-yoppa-fude absolute-center top-[45%] w-full text-center uppercase"
+          className="text-brown text-fluid-9xl font-regular font-yoppa-fude absolute-center top-[45%]! w-full text-center uppercase"
         >
           ビンセント
         </span>
       </h1>
-      <h2 className="text-dark text-fluid-2xl mt-[-20px] font-bold tracking-wider uppercase">
+      <h2 className="text-dark text-fluid-2xl mt-[-20px] font-bold tracking-widest uppercase">
         Développeur fullstack | react & node.js
       </h2>
     </div>
