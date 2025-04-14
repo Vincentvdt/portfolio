@@ -10,7 +10,7 @@ import gsap from 'gsap'
 gsap.registerPlugin(useGSAP)
 
 const Footer = () => {
-  const intlRef = useRef<HTMLDivElement>(null!)
+  const intlRef = useRef<HTMLDivElement | null>(null)
 
   const locale = useLocale()
   const t = useTranslations('Footer')

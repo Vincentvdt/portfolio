@@ -7,10 +7,10 @@ import { useTranslations } from 'next-intl'
 
 const KanjiInteractiveReveal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const containerRef = useRef<HTMLDivElement>(null!)
-  const svgRef = useRef<SVGSVGElement>(null!)
-  const kanjiRef = useRef<HTMLSpanElement>(null!)
-  const hiddenTextRef = useRef<HTMLDivElement>(null!)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const svgRef = useRef<SVGSVGElement | null>(null)
+  const kanjiRef = useRef<HTMLSpanElement | null>(null)
+  const hiddenTextRef = useRef<HTMLDivElement | null>(null)
 
   const { contextSafe } = useGSAP({ scope: containerRef })
   const t = useTranslations('Header')

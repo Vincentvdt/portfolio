@@ -9,7 +9,7 @@ import Button from '@/components/atoms/Button'
 gsap.registerPlugin(useGSAP)
 
 const NotFound = () => {
-  const containerRef = useRef<HTMLDivElement>(null!)
+  const containerRef = useRef<HTMLDivElement | null>(null)
   const t = useTranslations('NotFound')
 
   useGSAP(() => {

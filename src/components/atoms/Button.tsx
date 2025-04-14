@@ -19,8 +19,8 @@ const ButtonCore = ({
   text,
   className,
 }: Pick<ButtonProps, 'text' | 'className'>) => {
-  const buttonRef = useRef<HTMLSpanElement>(null!)
-  const underlineRef = useRef<HTMLSpanElement>(null!)
+  const buttonRef = useRef<HTMLSpanElement | null>(null)
+  const underlineRef = useRef<HTMLSpanElement | null>(null)
 
   const { contextSafe } = useGSAP({ scope: buttonRef })
 
