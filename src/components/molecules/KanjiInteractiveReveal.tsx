@@ -14,12 +14,12 @@ const KanjiInteractiveReveal = () => {
   const hiddenTextRef = useRef<HTMLDivElement | null>(null)
 
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
-  const rotationTweedRef = useRef<gsap.core.Tween | null>(null)
+  const rotationTweenRef = useRef<gsap.core.Tween | null>(null)
   const t = useTranslations('Header')
 
   useGSAP(() => {
     if (svgRef.current)
-      rotationTweedRef.current = gsap.to(svgRef.current, {
+      rotationTweenRef.current = gsap.to(svgRef.current, {
         rotate: -360,
         duration: 15,
         ease: 'linear',
@@ -69,12 +69,16 @@ const KanjiInteractiveReveal = () => {
         scale: 1,
         ease: 'power2.out',
       })
+
+      if (rotationTweenRef.current?.isActive()) {
+        handleOnMouseUp()
+      }
     }
   }
 
   const handleOnMouseDown = () => {
-    if (svgRef.current && rotationTweedRef.current) {
-      gsap.to(rotationTweedRef.current, {
+    if (svgRef.current && rotationTweenRef.current) {
+      gsap.to(rotationTweenRef.current, {
         timeScale: 40,
         duration: 1.5,
         ease: 'expoScale(1,2,power2.in)',
@@ -84,8 +88,8 @@ const KanjiInteractiveReveal = () => {
   }
 
   const handleOnMouseUp = () => {
-    if (svgRef.current && rotationTweedRef.current) {
-      gsap.to(rotationTweedRef.current, {
+    if (svgRef.current && rotationTweenRef.current) {
+      gsap.to(rotationTweenRef.current, {
         timeScale: 1,
         duration: 1.5,
         ease: 'expoScale(1,2,power2.out)',
