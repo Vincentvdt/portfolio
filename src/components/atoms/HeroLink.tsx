@@ -39,6 +39,13 @@ const HeroLink = ({ text, href, ariaLabel }: HeroButtonProps) => {
 
   const handleEnter = () => timelineRef.current?.play()
   const handleLeave = () => timelineRef.current?.reverse()
+  const handleClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    event.preventDefault()
+    containerRef.current?.blur() // trigger onBlur event
+    setTimeout(() => window.open(href, '_blank', 'noopener,noreferrer'), 300)
+  }
 
   return (
     <a
@@ -51,7 +58,7 @@ const HeroLink = ({ text, href, ariaLabel }: HeroButtonProps) => {
       onMouseLeave={handleLeave}
       onFocus={handleEnter}
       onBlur={handleLeave}
-      onClick={() => containerRef.current?.blur()}
+      onClick={handleClick}
       className="border-light bg-red focus-visible:ring-light clip-margin relative inline-flex w-[115px] transform-gpu items-center justify-center overflow-clip rounded-full border-3 font-bold uppercase focus-visible:ring-2 focus-visible:outline-none"
     >
       <span
