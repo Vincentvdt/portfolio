@@ -5,8 +5,6 @@ import gsap from 'gsap'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 
-gsap.registerPlugin(useGSAP)
-
 interface ButtonProps {
   text: string
   href: string

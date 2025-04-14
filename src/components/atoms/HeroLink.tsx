@@ -18,23 +18,21 @@ const HeroLink = ({ text, href, ariaLabel }: HeroButtonProps) => {
 
   useGSAP(
     () => {
-      if (!timelineRef.current) {
-        timelineRef.current = gsap.timeline({
-          paused: true,
-          defaults: { duration: 0.2, ease: 'power2.out' },
-        })
+      timelineRef.current = gsap.timeline({
+        paused: true,
+        defaults: { duration: 0.2, ease: 'power2.out' },
+      })
 
-        timelineRef.current.to(bgRef.current, { scaleX: 1.02 }, 0).to(
-          textRef.current,
-          {
-            color:
-              getComputedStyle(document.documentElement).getPropertyValue(
-                '--color-red'
-              ) || '#EB2603',
-          },
-          0.05
-        )
-      }
+      timelineRef.current.to(bgRef.current, { scaleX: 1.02 }, 0).to(
+        textRef.current,
+        {
+          color:
+            getComputedStyle(document.documentElement).getPropertyValue(
+              '--color-red'
+            ) || '#EB2603',
+        },
+        0.05
+      )
     },
     { scope: containerRef, dependencies: [] }
   )
@@ -58,11 +56,10 @@ const HeroLink = ({ text, href, ariaLabel }: HeroButtonProps) => {
       <span
         ref={bgRef}
         className="bg-light absolute inset-0 z-0 origin-left scale-x-0 will-change-transform"
-        aria-hidden="true"
       />
       <span
         ref={textRef}
-        className="text-fluid-base text-light relative z-10 block px-4 py-1"
+        className="text-fluid-base text-light relative z-10 block px-2 py-0.5"
       >
         {text}
       </span>

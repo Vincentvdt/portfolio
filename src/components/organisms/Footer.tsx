@@ -1,13 +1,11 @@
 'use client'
 
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import LanguageSwitcher from '@/components/molecules/LanguageSwitcher'
 import { Locale } from '@/i18n/config'
 import { useLocale, useTranslations } from 'next-intl'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-
-gsap.registerPlugin(useGSAP)
 
 const Footer = () => {
   const intlRef = useRef<HTMLDivElement | null>(null)
@@ -28,7 +26,6 @@ const Footer = () => {
           opacity: 1,
           duration: 0.8,
           delay: 0.3,
-          stagger: 0.1,
         }
       )
     }

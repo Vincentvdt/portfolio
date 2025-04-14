@@ -1,8 +1,6 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import KanjiInteractiveReveal from '@/components/molecules/KanjiInteractiveReveal'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
 import CustomLink from '@/components/atoms/CustomLink'
 
 gsap.registerPlugin(useGSAP)

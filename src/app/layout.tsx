@@ -10,6 +10,11 @@ import Header from '@/components/organisms/Header'
 import Footer from '@/components/organisms/Footer'
 import clsx from 'clsx'
 
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+
+gsap.registerPlugin(useGSAP)
+
 export default async function RootLayout({
   children,
 }: Readonly<{

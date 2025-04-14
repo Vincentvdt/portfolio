@@ -6,16 +6,14 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import Button from '@/components/atoms/Button'
 
-gsap.registerPlugin(useGSAP)
-
 const NotFound = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const t = useTranslations('NotFound')
 
-  useGSAP(() => {
-    if (containerRef.current) {
+  useGSAP(
+    () => {
       gsap.fromTo(
-        containerRef.current.children,
+        'h1, h2, h3, div',
         {
           opacity: 0,
           y: 50,
@@ -30,11 +28,12 @@ const NotFound = () => {
           duration: 1,
           delay: 0.2,
           stagger: 0.15,
-          ease: 'power2.out',
+          ease: 'power3.out',
         }
       )
-    }
-  })
+    },
+    { scope: containerRef, dependencies: [] }
+  )
 
   return (
     <main

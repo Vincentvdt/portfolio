@@ -1,91 +1,110 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useTranslations } from 'next-intl'
 
 const KanjiInteractiveReveal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+
   const containerRef = useRef<HTMLDivElement | null>(null)
   const svgRef = useRef<SVGSVGElement | null>(null)
   const kanjiRef = useRef<HTMLSpanElement | null>(null)
   const hiddenTextRef = useRef<HTMLDivElement | null>(null)
 
-  const { contextSafe } = useGSAP({ scope: containerRef })
+  const timelineRef = useRef<gsap.core.Timeline | null>(null)
+  const rotationTweedRef = useRef<gsap.core.Tween | null>(null)
   const t = useTranslations('Header')
 
   useGSAP(() => {
-    if (svgRef.current) {
-      gsap.to(svgRef.current, {
+    if (svgRef.current)
+      rotationTweedRef.current = gsap.to(svgRef.current, {
         rotate: 360,
         duration: 15,
         ease: 'linear',
         repeat: -1,
         transformOrigin: '50% 50%',
       })
-    }
-  }, [])
-
-  const handleOnClick = contextSafe(() => setIsOpen((prevState) => !prevState))
-
-  useEffect(() => {
-    if (hiddenTextRef.current) {
-      gsap.killTweensOf(hiddenTextRef.current)
-      gsap.killTweensOf(kanjiRef.current)
-
-      if (isOpen) {
-        gsap.fromTo(
-          hiddenTextRef.current,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 80, duration: 0.5, ease: 'power2.out' }
-        )
-        gsap.to(kanjiRef.current, {
-          rotate: 20,
-          duration: 1,
-          ease: 'elastic.out',
-        })
-      } else {
-        gsap.to(kanjiRef.current, { rotate: 0, duration: 0.15 })
-        gsap.to(hiddenTextRef.current, {
-          opacity: 0,
-          y: 10,
-          duration: 0.5,
-          ease: 'power2.in',
-        })
-      }
-    }
-  }, [isOpen])
-
-  const handleMouseEnter = contextSafe(() => {
-    if (kanjiRef.current) {
-      gsap.to(kanjiRef.current, {
-        scale: 0.9,
-        duration: 0.25,
-        ease: 'power1.out',
-      })
-    }
   })
 
-  const handleMouseLeave = contextSafe(() => {
-    if (kanjiRef.current) {
-      gsap.to(kanjiRef.current, {
+  useGSAP(() => {
+    timelineRef.current = gsap.timeline({
+      paused: true,
+      defaults: { duration: 1, ease: 'elastic.inOut' },
+    })
+
+    timelineRef.current
+      .to(
+        hiddenTextRef.current,
+        {
+          opacity: 1,
+          y: 90,
+        },
+        0
+      )
+      .to(kanjiRef.current, { rotate: 20 }, '<')
+  })
+
+  const handleOnClick = () => {
+    setIsOpen((prevState) => !prevState)
+    if (!isOpen) {
+      timelineRef.current?.play()
+    } else {
+      timelineRef.current?.reverse()
+    }
+  }
+
+  const handleOnMouseEnter = () => {
+    if (svgRef.current) {
+      gsap.to(svgRef.current, {
+        scale: 0.8,
+        ease: 'power2.out',
+      })
+    }
+  }
+  const handleOnMouseLeave = () => {
+    if (svgRef.current) {
+      gsap.to(svgRef.current, {
         scale: 1,
-        duration: 0.25,
-        ease: 'power1.out',
+        ease: 'power2.out',
       })
     }
-  })
+  }
+
+  const handleOnMouseDown = () => {
+    if (svgRef.current && rotationTweedRef.current) {
+      gsap.to(rotationTweedRef.current, {
+        timeScale: 40,
+        duration: 1.5,
+        ease: 'expoScale(1,2,power2.in)',
+        overwrite: true,
+      })
+    }
+  }
+
+  const handleOnMouseUp = () => {
+    if (svgRef.current && rotationTweedRef.current) {
+      gsap.to(rotationTweedRef.current, {
+        timeScale: 1,
+        duration: 1.5,
+        ease: 'expoScale(1,2,power2.out)',
+        overwrite: true,
+      })
+    }
+  }
 
   return (
     <div
       ref={containerRef}
       aria-expanded={isOpen}
       aria-label={t('kanjiTooltip')}
-      className="font-yoppa-fude relative flex h-[70px] w-[70px] cursor-pointer items-center justify-center"
+      className="font-yoppa-fude relative flex h-[90px] w-[90px] cursor-pointer items-center justify-center"
       onClick={handleOnClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      onMouseDown={handleOnMouseDown}
+      onMouseUp={handleOnMouseUp}
     >
       <span ref={kanjiRef} className="text-light text-fluid-4xl uppercase">
         愛
@@ -94,37 +113,39 @@ const KanjiInteractiveReveal = () => {
       <div
         ref={hiddenTextRef}
         aria-hidden={!isOpen}
-        className="writing-mode-vertical-rl text-dark text-fluid-xs pointer-events-none absolute font-medium opacity-0"
+        className="writing-mode-vertical-rl text-dark text-fluid-sm pointer-events-none absolute font-medium opacity-0"
       >
         <p>ハリファイ</p>
         <p>フェヌイユ</p>
       </div>
 
       <svg
-        className="pointer-events-none absolute"
-        viewBox="0 0 140 140"
-        width="70"
-        height="70"
+        className="pointer-events-none absolute origin-center will-change-transform"
+        viewBox="0 0 180 180"
         xmlns="http://www.w3.org/2000/svg"
         ref={svgRef}
       >
-        <desc>
-          Text path showing &#34;VINCENT VIDOT FULLSTACK DEVELOPER&#34;
-        </desc>
+        <desc>Text path showing &#34;VINCENT VIDOT FULLSTACK DEV&#34;</desc>
         <defs>
           <path
             id="circlePath"
-            d="M70,70 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"
+            d="M90,90 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"
           />
         </defs>
         <text
-          className="fill-light text-fluid-xs font-medium"
+          className="fill-light"
+          fontWeight="bold"
+          fontSize="20px"
           letterSpacing="2px"
           wordSpacing="4px"
           textAnchor="middle"
         >
-          <textPath href="#circlePath" startOffset="50%">
-            VINCENT VIDOT FULLSTACK DEVELOPER
+          <textPath
+            href="#circlePath"
+            startOffset="50%"
+            dominantBaseline="middle"
+          >
+            VINCENT VIDOT FULLSTACK DEV
           </textPath>
         </text>
       </svg>
