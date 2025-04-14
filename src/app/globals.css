@@ -92,6 +92,10 @@ body {
     writing-mode: vertical-lr;
   }
 
+  .clip-margin {
+    overflow-clip-margin: 2px;
+  }
+
   .absolute-center {
     position: absolute;
     top: 50%;
