@@ -20,7 +20,7 @@ const KanjiInteractiveReveal = () => {
   useGSAP(() => {
     if (svgRef.current)
       rotationTweedRef.current = gsap.to(svgRef.current, {
-        rotate: 360,
+        rotate: -360,
         duration: 15,
         ease: 'linear',
         repeat: -1,
