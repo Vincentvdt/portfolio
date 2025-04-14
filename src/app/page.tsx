@@ -1,5 +1,10 @@
 import React from 'react'
+import HeroBanner from '@/components/molecules/HeroBanner'
 
-const HomePage = () => <h1>Rien</h1>
+const HomePage = () => (
+    <>
+      <HeroBanner />
+    </>
+  )
 
 export default HomePage
