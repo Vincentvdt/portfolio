@@ -11,14 +11,21 @@ This portfolio is a reflection of my work, creativity, and passion for building 
 
 ## 🌍 Multilingual
 
-This site is available in **French** and **English** — because I believe in speaking to people in their language. 
+This site is available in **French** and **English** — because I believe in speaking to people in their language.
 
 ## 📬 Let’s Connect
 
 Got a project in mind or just want to talk tech?  
-Feel free to reach out via [email](mailto:vincent.vidot3@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/vincentvdt).
+Feel free to reach out via [Email][email-link] or connect with me on [LinkedIn][linkedin-link].
 
 ## 📜 License
 
-MIT – Open-source for the win!
+[MIT License][mit-license-link] – Open-source for the win!
 
+---
+
+[email-link]: mailto:vincent.vidot3@gmail.com
+
+[linkedin-link]: https://www.linkedin.com/in/vincentvdt
+
+[mit-license-link]: https://opensource.org/licenses/MIT
