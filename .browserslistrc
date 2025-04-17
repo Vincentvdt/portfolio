@@ -1,0 +1,11 @@
+# Use the last 2 versions of major browsers
+last 2 chrome versions
+last 2 firefox versions
+last 2 edge versions
+last 2 safari versions
+
+# Exclude browsers that are no longer maintained
+not dead
+
+# Explicitly exclude Internet Explorer
+not ie 11

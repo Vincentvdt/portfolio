@@ -11,6 +11,7 @@ import clsx from 'clsx'
 
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import UnsupportedBrowserWarning from '@/components/atoms/UnsupportedBrowserWarning'
 
 gsap.registerPlugin(useGSAP)
 
@@ -34,6 +35,7 @@ export default async function RootLayout({
         )}
       >
         <NextIntlClientProvider messages={messages} timeZone={TIME_ZONE}>
+          <UnsupportedBrowserWarning />
           <Header />
           <main className="m-auto">{children}</main>
           <Footer />

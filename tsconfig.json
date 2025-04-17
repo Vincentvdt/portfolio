@@ -1,28 +1,36 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "sourceMap": true,
+    "target": "ES2022", // Safely set to ES2022 or ESNext
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Keep modern DOM and ES standards
+    "allowJs": true, // Support JavaScript files
+    "skipLibCheck": true, // Skip type checks in library files for better perf
+    "strict": true, // Enable all strict type-checking options
+    "noEmit": true, // Prevent emitting compiled output
+    "esModuleInterop": true, // Support for ESM compatibility
+    "module": "ESNext", // Follow edge-case modules for faster builds
+    "moduleResolution": "bundler", // Native module resolution for bundlers
+    "resolveJsonModule": true, // Allow importing JSON files
+    "isolatedModules": true, // Ensure compatibility with single-file transpiling
+    "jsx": "preserve", // Enable JSX support as-is (works perfectly with React in Next.js)
+    "incremental": true, // Faster rebuilds with incremental compilation
+    "sourceMap": true, // Include source maps for easier debugging
+    "paths": {
+      "@/*": ["./src/*"] // Define aliases for streamlined imports
+    },
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // For enhanced Next.js IntelliSense
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts", // Include Next.js default definitions
+    "**/*.ts", // Include all TypeScript files
+    "**/*.tsx", // Include all React TypeScript files
+    ".next/types/**/*.ts" // Next.js-generated types
+  ],
+  "exclude": [
+    "node_modules", // Exclude dependencies from compilation
+    ".next" // Exclude Next.js build outputs
+  ]
 }
