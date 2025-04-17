@@ -1,13 +1,9 @@
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+
 import { FlatCompat } from '@eslint/eslintrc'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-// Support for extending ESLint configs in flat configuration format
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  // import.meta.dirname is available after Node.js v20.11.0
+  baseDirectory: import.meta.dirname,
 })
 
 const eslintConfig = [
@@ -15,6 +11,7 @@ const eslintConfig = [
     extends: [
       'next/core-web-vitals', // Next.js-specific linting
       'next/typescript', // TypeScript linting for Next.js
+      'plugin:@next/next/recommended', // Recommended Next.js linting rules
       'prettier', // Integrate Prettier with ESLint
     ],
 
